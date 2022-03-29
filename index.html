@@ -53,34 +53,46 @@
             </div>
             <div id="round">
                 <div id="round-1">
-                    <label for="question_1">Round 1</label>
+                    <label for="round_1">Round 1</label>
 
                     <br>
-                    <label for="question_1">Question 1</label>
+                    <div id="question_1">
+                        <label for="question_1">Question 1</label>
 
-                    <textarea class="form-control" id="question_1" rows="3"
-                        placeholder="Add question description"></textarea>
+                        <textarea class="form-control" rows="3" placeholder="Add question description"></textarea>
+                    </div>
                 </div>
                 <br>
             </div>
             <br>
             <div class="d-flex justify-content-center">
-                <button id="addQuestion" type="button" class="btn btn-secondary btn-sm">
+                <button id="addQuestion" type="button" class="btn btn-success btn-sm">
                     Add another question
                 </button>
                 <hr>
-                <button id="addRound" type="button" class="btn btn-secondary btn-sm">
+                <button id="addRound" type="button" class="btn btn-success btn-sm">
                     Add another round
+                </button>
+                <br>
+            </div>
+            <div>
+                <br>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button id="removeQuestion" type="button" class="btn btn-danger btn-sm">
+                    Remove last question
+                </button>
+                <hr>
+                <button id="removeRound" type="button" class="btn btn-danger btn-sm">
+                    Remove last round
                 </button>
                 <br>
             </div>
             <div> <br></div>
             <div id="feedback">
-                <div id="round-1">
-                    <label for="feedback">Feedback/Suggestions</label>
-                    <textarea class="form-control" id="feedback" rows="3" placeholder="Add some feedback"></textarea>
-                    <br>
-                </div>
+                <label for="feedback">Feedback/Suggestions</label>
+                <textarea class="form-control" id="feedback" rows="3" placeholder="Add some feedback"></textarea>
+                <br>
             </div>
             <div id="selectionStatus">
                 Selection Status

@@ -12,7 +12,14 @@ companies.forEach(function (item) {
 let roundNumber = 1
 let questionNumber = 1
 let listQuestionByRound = [questionNumber];
-let listCompanies = ["Facebook", "Amazon", "Adobe", "Google", "Netflix", "Paytm", "Microsoft"];
+
+document.getElementById('removeRound').addEventListener('click', function () {
+    removeRound();
+});
+
+document.getElementById('removeQuestion').addEventListener('click', function () {
+    removeQuestion();
+});
 
 document.getElementById('addRound').addEventListener('click', function () {
     addRound(++roundNumber);
@@ -23,23 +30,53 @@ document.getElementById('addQuestion').addEventListener('click', function () {
     addQuestion(roundNumber);
 });
 
-const questionHtml = (questionNumber) => `<label for="question_${questionNumber}">Question ${questionNumber}</label>
-<textarea class="form-control" id="question_${questionNumber}" rows="3"
-    placeholder="Add question description"></textarea><br>`
+const questionHtml = (questionNumber) => `
+        <label for="question_${questionNumber}">Question ${questionNumber}</label>
+        <textarea class="form-control"" rows="3" placeholder="Add question description"></textarea>
+        <br>`
 
 
-const roundHtml = (roundNumber) => `<div id="round-${roundNumber}">
-<label for="question_1">Round ${roundNumber}</label>
-<div class="form-group">
-    <label for="question_${listQuestionByRound[roundNumber - 1]}">Question ${listQuestionByRound[roundNumber - 1]}</label>
-    <textarea class="form-control" id="question_${listQuestionByRound[roundNumber - 1]}" rows="3"
-        placeholder="Add question description"></textarea>
-</div>
-</div> `
+const roundHtml = (roundNumber) => `
+        <label for="round_${roundNumber}">Round ${roundNumber}</label>
+        <br>
+        <div id="question_${questionNumber}">
+            <label for="question_${questionNumber}">Question ${questionNumber}</label>
+            <textarea class="form-control" rows="3" placeholder="Add question description"></textarea>
+        </div>
+        <br>`
+
+function removeRound() {
+    if (roundNumber == 1) {
+        alert("Cant remove first round");
+    }
+    else {
+        const ele = document.getElementById('round');
+        ele.removeChild(document.getElementById('round-' + roundNumber));
+        listQuestionByRound.pop();
+        roundNumber--;
+    }
+}
+
+function removeQuestion() {
+    if (roundNumber == 1 && listQuestionByRound[0] == 1) {
+        alert("Cant remove first round");
+    }
+    else {
+        if (listQuestionByRound[roundNumber - 1] == 1) {
+            removeRound();
+        }
+        else {
+            const ele = document.getElementById('round-' + roundNumber);
+            ele.removeChild(document.getElementById('question_' + listQuestionByRound[roundNumber - 1]));
+            listQuestionByRound[roundNumber - 1]--;
+        }
+    }
+}
 
 function createQuestion(questionNumber) {
-    const div = document.createElement('div')
-    div.innerHTML = questionHtml(listQuestionByRound[roundNumber - 1]);
+    const div = document.createElement('div');
+    div.setAttribute("id", "question_" + questionNumber);
+    div.innerHTML = questionHtml(questionNumber);
     return div;
 }
 
@@ -50,7 +87,8 @@ function addQuestion(roundNumber) {
 
 
 function createRound(roundNumber) {
-    const div = document.createElement('div')
+    const div = document.createElement('div');
+    div.setAttribute("id", "round-" + roundNumber);
     div.innerHTML = roundHtml(roundNumber);
     return div;
 }
