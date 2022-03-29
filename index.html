@@ -15,6 +15,28 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">I Placed Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Search <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Add Experience <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
     <img src="/img/logo.png" id="logo-size" class="rounded mx-auto d-block" alt="...">
     <div class="container" style="max-width: 800px;">
         <div class="d-flex justify-content-center">
@@ -26,40 +48,44 @@
         <form id="form" class='card p-3 bg-light'>
             <div class="form-group">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" placeholder="First name" id="firstName">
+                <input type="text" class="form-control" placeholder="First name" id="firstName" required>
             </div>
             <div class="form-group">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" placeholder="Last name" id="lastName">
+                <input type="text" class="form-control" placeholder="Last name" id="lastName" required>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter email">
+                    placeholder="Enter email" required>
             </div>
             <div class="form-group">
                 <label for="batch">Batch Year</label>
-                <input type="number" class="form-control" id="batch" placeholder="Enter Joining Year" min="2016">
+                <input type="number" class="form-control" id="batch" placeholder="Enter Joining Year" min="2016"
+                    required>
             </div>
             <div class="form-group">
                 <label for="cgpa">CGPA</label>
-                <input type="number" step="0.01" class="form-control" id="cgpa"
-                    placeholder="Enter CGPA during placement process" min="4" max="10">
+                <input type="number" step="0.1" class="form-control" id="cgpa"
+                    placeholder="Enter CGPA during placement process" min="4" max="10" required>
             </div>
             <div class="form-group">
-                <label for="comapanyName">Company Name</label>
-                <select id="comapanyName" class="form-control" name="company">
+                <label for="companyName">Company Name</label>
+                <select id="companyName" class="form-control" name="company" required>
                 </select>
             </div>
             <div id="round">
-                <div id="round-1">
-                    <label for="round_1">Round 1</label>
+                <div id="round_1">
+                    <label for="round_1">
+                        <h4><b>Round 1</b></h4>
+                    </label>
 
                     <br>
-                    <div id="question_1">
+                    <div id="question_1" class="round_1_question_1">
                         <label for="question_1">Question 1</label>
 
-                        <textarea class="form-control" rows="3" placeholder="Add question description"></textarea>
+                        <textarea class="form-control" id="data_round_1_question_1" rows="3"
+                            placeholder="Add question description" required></textarea>
                     </div>
                 </div>
                 <br>
@@ -89,7 +115,7 @@
                 <br>
             </div>
             <div> <br></div>
-            <div id="feedback">
+            <div id="feedback_div">
                 <label for="feedback">Feedback/Suggestions</label>
                 <textarea class="form-control" id="feedback" rows="3" placeholder="Add some feedback"></textarea>
                 <br>
@@ -97,13 +123,13 @@
             <div id="selectionStatus">
                 Selection Status
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status" id="selected" checked>
+                    <input class="form-check-input" type="radio" name="status" value="selected" checked>
                     <label class="form-check-label" for="selected">
                         Selected
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="status" id="not_selected">
+                    <input class="form-check-input" type="radio" name="status" value="not_selected">
                     <label class="form-check-label" for="not_selected">
                         Rejected
                     </label>
@@ -113,30 +139,32 @@
             <div id="level">
                 Difficulty Level
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="difficulty" id="easy" checked>
+                    <input class="form-check-input" type="radio" name="difficulty" value="easy" checked>
                     <label class="form-check-label" for="easy">
                         Easy
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="difficulty" id="medium">
+                    <input class="form-check-input" type="radio" name="difficulty" value="medium">
                     <label class="form-check-label" for="medium">
                         Medium
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="difficulty" id="hard">
+                    <input class="form-check-input" type="radio" name="difficulty" value="hard">
                     <label class="form-check-label" for="hard">
                         Hard
                     </label>
                 </div>
                 <br>
-                Select Topic Tags
-                <multi-input>
-                    <input list="languages">
-                    <datalist id="languages">
-                    </datalist>
-                </multi-input>
+                <div id="Topics ">
+                    Select Topic Tags
+                    <multi-input id="topicTags">
+                        <input list="languages">
+                        <datalist id="languages">
+                        </datalist>
+                    </multi-input>
+                </div>
                 <script>
                     var languages = ['Arrays', 'Strings', 'Hash', 'Tree', 'Matrix', 'Graph', 'Linked List', 'Stack', 'Binary Search Tree', 'Queue', 'Heap', 'Map', 'Segment-Tree', 'Trie', 'priority-queue', 'Data Structures', 'Binary Indexed Tree', 'AVL-Tree', 'Mathematical', 'Dynamic Programming', 'Sorting', 'Bit Magic', 'Searching', 'Recursion', 'Greedy', 'Prime Number', 'Binary Search', 'DFS', 'Backtracking', 'Numbers', 'Algorithms', 'sieve', 'Combinatorial', 'Divide and Conquer', 'BFS', 'Geometric', 'Modular Arithmetic', 'Fibonacci', 'series', 'palindrome', 'Binary Representation', 'Game Theory', 'Merge Sort', 'Machine Learning', 'STL', 'Java-Collections', 'sliding-window', 'number-theory', 'Misc', 'two-pointer-algorithm', 'Practice-Problems', 'python-loops', 'Tutorial-Problems', 'permutation', 'pattern-printing', 'Design-Pattern', 'python', 'python-io', 'python-operators', 'logical-thinking', 'doubly-linked-list', 'python-list', 'python-strings', 'factorial', 'prefix-sum', 'implementation', ' python-conditionals', 'constructive algo', 'Pattern Searching', ' \tmodular arithmetic', 'set', 'Traversal', 'Operators', 'Disjoint Set', 'subset', 'Regular Expression', 'Division', 'circular-linked-list', 'OOP', 'python-functions', 'Java-Strings', 'Date-Time', 'Shortest Path', 'Puzzles', 'Kadane', 'cpp-operator', 'Java-BigInteger', 'Java-Class and Object', 'cpp-strings', 'Data Type', 'python-set', 'Class', 'cpp-pointers', 'logarithm', 'Factorization', ' CPP-Control-Flow', 'python-dict', 'Sqrt Decomposition', 'inclusion-exclusion', 'Probability', 'Pointers', 'Java-Control-Flow', 'union-find', 'anagram', 'Functions', 'circular linked list', 'LCS', 'Range Minimum Query', 'Quantifiers', 'cryptography', 'Graph colouring', 'Character Encoding', 'Physics', 'Java-Operators', 'Gauss Elimination', 'Operating Systems', 'Reverse', 'Structures', 'Computer Networks', 'c-lang', 'parser', 'CPP-Control-Flow', 'alphabets']
                         ;
@@ -149,7 +177,7 @@
                     });
                 </script>
             </div>
-            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+            <button type="submit" id="submit" class="btn btn-primary btn-sm">Submit</button>
         </form>
     </div>
     <!-- Optional JavaScript -->
