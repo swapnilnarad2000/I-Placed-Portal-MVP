@@ -67,7 +67,7 @@ function removeQuestion() {
         }
         else {
             const ele = document.getElementById('round-' + roundNumber);
-            ele.removeChild(document.getElementById('question_' + listQuestionByRound[roundNumber - 1]));
+            ele.removeChild(ele.lastElementChild);
             listQuestionByRound[roundNumber - 1]--;
         }
     }
