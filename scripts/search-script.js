@@ -36,6 +36,7 @@ const getData = () => {
     db.collection("experienceBlog").get().then(qs => {
         qs.forEach(doc => datas.push(doc.data()))
         topicTags = [];
+        companyTags = [];
         totalTags = document.getElementsByClassName("item").length;
         for (let topics = 0; topics < totalTags; topics++) {
             topicTags.push(document.getElementsByClassName("item")[topics].textContent);
@@ -48,7 +49,7 @@ const getData = () => {
                 let flag = 0;
                 // console.log(datas[i].tags[j], datas[i].tags[j] in topicTags)
                 for (let l = 0; l < topicTags.length; l++) {
-                    if (datas[i].tags[j] == topicTags[l]) {
+                    if (datas[i].tags[j] == topicTags[l] || datas[i].company == topicTags[l]) {
                         blog = createBlob(datas[i], s++);
                         const ele = document.getElementById('blogs');
                         ele.appendChild(createBlob(datas[i], i + 1));

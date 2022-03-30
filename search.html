@@ -63,34 +63,55 @@
         </div>
     </nav>
     <br>
-
-    <form id="form" action="javascript:void(0);" class='card p-3 bg-light'>
-
-        <div id="getTopic">
-            Search by Topic Tags
-            <multi-input id="topicTags">
-                <input list="topics">
-                <datalist id="topics">
-                </datalist>
-                <button type="submit" id="submit" class="btn btn-primary btn-mb">Search</button>
-            </multi-input>
-            <br>
-        </div>
-        <div class="container" style="max-width: 1000px;">
+    <div class="container" style="max-width: 1200px;">
+        <form id="form" action="javascript:void(0);" class='card p-3 bg-light'>
+            <div class="d-flex justify-content-center">
+                <div id="getTopic">
+                    <multi-input id="topicTags" class="text-center">
+                        <h5>Add Topic Tags</h5>
+                        <input list="topics">
+                        <datalist id="topics">
+                        </datalist>
+                    </multi-input>
+                    <hr>
+                    <multi-input id="companyTag" class="text-center">
+                        <h5>Add Company Tags</h5>
+                        <input list="companies">
+                        <datalist id="companies">
+                        </datalist>
+                    </multi-input>
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" id="submit" class="btn btn-primary btn-lg">Search</button>
+                    </div>
+                </div>
+            </div>
+            <hr>
             <div class="row" id="blogs">
             </div>
-        </div>
-        <script>
-            var topics = ['Arrays', 'Strings', 'Hash', 'Tree', 'Matrix', 'Graph', 'Linked List', 'Stack', 'Binary Search Tree', 'Queue', 'Heap', 'Map', 'Segment-Tree', 'Trie', 'priority-queue', 'Data Structures', 'Binary Indexed Tree', 'AVL-Tree', 'Mathematical', 'Dynamic Programming', 'Sorting', 'Bit Magic', 'Searching', 'Recursion', 'Greedy', 'Prime Number', 'Binary Search', 'DFS', 'Backtracking', 'Numbers', 'Algorithms', 'sieve', 'Combinatorial', 'Divide and Conquer', 'BFS', 'Geometric', 'Modular Arithmetic', 'Fibonacci', 'series', 'palindrome', 'Binary Representation', 'Game Theory', 'Merge Sort', 'Machine Learning', 'STL', 'Java-Collections', 'sliding-window', 'number-theory', 'Misc', 'two-pointer-algorithm', 'Practice-Problems', 'python-loops', 'Tutorial-Problems', 'permutation', 'pattern-printing', 'Design-Pattern', 'python', 'python-io', 'python-operators', 'logical-thinking', 'doubly-linked-list', 'python-list', 'python-strings', 'factorial', 'prefix-sum', 'implementation', ' python-conditionals', 'constructive algo', 'Pattern Searching', ' \tmodular arithmetic', 'set', 'Traversal', 'Operators', 'Disjoint Set', 'subset', 'Regular Expression', 'Division', 'circular-linked-list', 'OOP', 'python-functions', 'Java-Strings', 'Date-Time', 'Shortest Path', 'Puzzles', 'Kadane', 'cpp-operator', 'Java-BigInteger', 'Java-Class and Object', 'cpp-strings', 'Data Type', 'python-set', 'Class', 'cpp-pointers', 'logarithm', 'Factorization', ' CPP-Control-Flow', 'python-dict', 'Sqrt Decomposition', 'inclusion-exclusion', 'Probability', 'Pointers', 'Java-Control-Flow', 'union-find', 'anagram', 'Functions', 'circular linked list', 'LCS', 'Range Minimum Query', 'Quantifiers', 'cryptography', 'Graph colouring', 'Character Encoding', 'Physics', 'Java-Operators', 'Gauss Elimination', 'Operating Systems', 'Reverse', 'Structures', 'Computer Networks', 'c-lang', 'parser', 'CPP-Control-Flow', 'alphabets']
-                ;
-            var topicsElement = document.getElementById('topics');
+    </div>
+    <script>
+        var companiesName = ['Amazon', 'Microsoft', 'Flipkart', 'Google', 'Adobe', 'Samsung', 'Accolite', 'MakeMyTrip', 'Snapdeal', 'Paytm', 'Zoho', 'Walmart', 'Morgan Stanley', 'OYO Rooms', 'Goldman Sachs', 'FactSet', 'D-E-Shaw', 'SAP Labs', 'Ola Cabs', 'Hike', 'MAQ Software', 'Oracle', 'VMWare', 'Qualcomm', 'Intuit ', 'Cisco', 'Facebook', 'Visa', 'Directi', 'Linkedin', 'Payu', 'Yahoo', 'Wipro', 'Yatra.com', 'Belzabar', 'Salesforce', 'Housing.com', 'Teradata', 'Synopsys', 'BankBazaar', 'Codenation', 'Citrix', 'Mahindra Comviva', 'TCS', 'InMobi', '24*7 Innovation Labs', 'One97', 'Apple', 'Times Internet', 'Twitter', 'Veritas', 'PayPal', 'Tejas Network', 'Boomerang Commerce', 'Groupon', 'Nutanix', 'Brocade', 'InfoEdge', 'Myntra', 'ABCO', 'CouponDunia', 'Cognizant ', 'Atlassian', 'Lybrate', 'Amdocs', 'IgniteWorld ', 'OATS Systems', 'United Health Group', 'Opera', 'Oxigen Wallet', 'Juniper Networks', 'Nagarro', 'Quikr', 'Rockstand', 'TinyOwl', 'GreyOrange ', 'Streamoid Technologies', 'Infosys', 'MetLife', 'Moonfrog Labs', 'Philips', 'Drishti-Soft', 'GE', 'PropTiger', 'Polycom', 'Kritikal Solutions', 'Media.net ', 'BrowserStack', 'Zillious', 'Fab.com', 'Accenture', 'IBM', 'CarWale', 'Cadence India', 'Epic Systems', 'Grofers', 'Nvidia', 'Wooker', 'Monotype Solutions', 'Arcesium', 'Bloomberg', 'nearbuy', 'Sapient', 'Xome', 'Expedia', 'Tesco', 'Airtel', 'Citicorp', 'eBay', 'Netskope ', 'Kuliza', 'DE Shaw', 'Swiggy', 'Dell', 'Infinera', 'PlaySimple', 'Rivigo', 'Intel', 'Pubmatic', 'Vizury Interactive Solutions', 'Zycus', 'Jabong', 'Informatica', 'Unisys', 'Sprinklr', 'Medlife', 'Dunzo', 'Mobicip', 'Dailyhunt', 'National Instruments', 'Komli Media', 'Target Corporation', 'Junglee Games', 'Taxi4Sure', 'HSBC', 'Service Now', 'HCL', 'FreeCharge', 'Mallow Technologies', 'CGI', 'Zopper', 'redBus', 'KLA Tencor', 'Open Solutions', 'American Express', 'Practo', 'Bidgely', 'Uber', 'Yodlee Infotech', 'Code Brew', 'Cavisson System', 'HunanAsset', 'Motlay', 'Zomato', 'Freshokartz', 'Huawei', 'Knowlarity', 'LTI', 'L&T', 'Infosys', 'Others', 'ICICI Bank', 'Toppr', 'Truminds', 'Radisys'];
 
-            topics.forEach(function (item) {
-                var option = document.createElement('option');
-                option.value = item;
-                topicsElement.appendChild(option);
-            });
-        </script>
+        var companyList = document.getElementById('companies');
+
+        companiesName.forEach(function (item) {
+            var option = document.createElement('option');
+            option.value = item;
+            companyList.appendChild(option);
+        });
+
+        var topics = ['Arrays', 'Strings', 'Hash', 'Tree', 'Matrix', 'Graph', 'Linked List', 'Stack', 'Binary Search Tree', 'Queue', 'Heap', 'Map', 'Segment-Tree', 'Trie', 'priority-queue', 'Data Structures', 'Binary Indexed Tree', 'AVL-Tree', 'Mathematical', 'Dynamic Programming', 'Sorting', 'Bit Magic', 'Searching', 'Recursion', 'Greedy', 'Prime Number', 'Binary Search', 'DFS', 'Backtracking', 'Numbers', 'Algorithms', 'sieve', 'Combinatorial', 'Divide and Conquer', 'BFS', 'Geometric', 'Modular Arithmetic', 'Fibonacci', 'series', 'palindrome', 'Binary Representation', 'Game Theory', 'Merge Sort', 'Machine Learning', 'STL', 'Java-Collections', 'sliding-window', 'number-theory', 'Misc', 'two-pointer-algorithm', 'Practice-Problems', 'python-loops', 'Tutorial-Problems', 'permutation', 'pattern-printing', 'Design-Pattern', 'python', 'python-io', 'python-operators', 'logical-thinking', 'doubly-linked-list', 'python-list', 'python-strings', 'factorial', 'prefix-sum', 'implementation', ' python-conditionals', 'constructive algo', 'Pattern Searching', ' \tmodular arithmetic', 'set', 'Traversal', 'Operators', 'Disjoint Set', 'subset', 'Regular Expression', 'Division', 'circular-linked-list', 'OOP', 'python-functions', 'Java-Strings', 'Date-Time', 'Shortest Path', 'Puzzles', 'Kadane', 'cpp-operator', 'Java-BigInteger', 'Java-Class and Object', 'cpp-strings', 'Data Type', 'python-set', 'Class', 'cpp-pointers', 'logarithm', 'Factorization', ' CPP-Control-Flow', 'python-dict', 'Sqrt Decomposition', 'inclusion-exclusion', 'Probability', 'Pointers', 'Java-Control-Flow', 'union-find', 'anagram', 'Functions', 'circular linked list', 'LCS', 'Range Minimum Query', 'Quantifiers', 'cryptography', 'Graph colouring', 'Character Encoding', 'Physics', 'Java-Operators', 'Gauss Elimination', 'Operating Systems', 'Reverse', 'Structures', 'Computer Networks', 'c-lang', 'parser', 'CPP-Control-Flow', 'alphabets']
+            ;
+        var topicsElement = document.getElementById('topics');
+
+        topics.forEach(function (item) {
+            var option = document.createElement('option');
+            option.value = item;
+            topicsElement.appendChild(option);
+        });
+
+    </script>
     </form>
 
     <script src="scripts/multi-input.js"></script>
