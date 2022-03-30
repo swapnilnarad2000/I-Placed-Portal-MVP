@@ -32,7 +32,12 @@ document.getElementById('addQuestion').addEventListener('click', function () {
 });
 
 document.getElementById("submit").addEventListener('click', function () {
+    // let msg = document.getElementById('main');
+    // let element = document.createElement('div');
+    // msg.innerHTML = successHtml;
+    // element.appendChild(msg);
     postData();
+    alert("Feedback added successfully");
 });
 
 const questionHtml = (questionNumber) => `
@@ -49,6 +54,13 @@ const roundHtml = (roundNumber) => `
             <textarea class="form-control"" rows="3" id="data_round_${roundNumber}_question_${listQuestionByRound[roundNumber - 1]}" placeholder="Add question description"></textarea>
         </div>
         <br>`
+
+const successHtml = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+<strong>Thanks!</strong> Your interview experience was added successfully.
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>`
 
 function createQuestion(questionNumber) {
     const div = document.createElement('div');

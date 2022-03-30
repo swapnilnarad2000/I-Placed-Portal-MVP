@@ -1,3 +1,7 @@
+document.getElementById("submit").addEventListener("click", function () {
+    getData();
+});
+
 const blogHtml = (blog) => `
                 <div class="card border-success mb-3">
                     <div class="card-header bg-primary text-white border-success"><b>${blog.company} On campus experience</b></div>
@@ -17,19 +21,32 @@ function createBlob(blogData, blogNumber) {
     return div;
 }
 
-
 let datas = []
 
 const getData = () => {
     db.collection("experienceBlog").get().then(qs => {
         qs.forEach(doc => datas.push(doc.data()))
+        topicTags = [];
+        totalTags = document.getElementsByClassName("item").length;
+        for (let topics = 0; topics < totalTags; topics++) {
+            topicTags.push(document.getElementsByClassName("item")[topics].textContent);
+        }
+        console.log(topicTags[0])
+        let s = 1;
         for (let i = 0; i < datas.length; i++) {
-            const ele = document.getElementById('blogs');
-            ele.appendChild(createBlob(datas[i], i + 1));
-            // console.log(ele.innerHTML)
+            let k = datas[i].tags.length;
+            for (let j = 0; j < k; j++) {
+                console.log(datas[i].tags[j], datas[i].tags[j] in topicTags)
+                for (let l = 0; l < topicTags.length; l++) {
+                    if (datas[i].tags[j] == topicTags[l]) {
+                        blog = createBlob(datas[i], s++);
+                        const ele = document.getElementById('blogs');
+                        ele.appendChild(createBlob(datas[i], i + 1));
+                    }
+                }
+            }
         }
     })
 }
 
-getData()
 
