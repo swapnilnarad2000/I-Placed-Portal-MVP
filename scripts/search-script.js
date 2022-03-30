@@ -1,4 +1,8 @@
+let datas = []
+
 document.getElementById("submit").addEventListener("click", function () {
+    removeAllChildNodes(document.getElementById('blogs'));
+    datas = []
     getData();
 });
 
@@ -21,7 +25,12 @@ function createBlob(blogData, blogNumber) {
     return div;
 }
 
-let datas = []
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
 
 const getData = () => {
     db.collection("experienceBlog").get().then(qs => {
@@ -31,19 +40,23 @@ const getData = () => {
         for (let topics = 0; topics < totalTags; topics++) {
             topicTags.push(document.getElementsByClassName("item")[topics].textContent);
         }
-        console.log(topicTags[0])
+        console.log(topicTags)
         let s = 1;
         for (let i = 0; i < datas.length; i++) {
             let k = datas[i].tags.length;
             for (let j = 0; j < k; j++) {
-                console.log(datas[i].tags[j], datas[i].tags[j] in topicTags)
+                let flag = 0;
+                // console.log(datas[i].tags[j], datas[i].tags[j] in topicTags)
                 for (let l = 0; l < topicTags.length; l++) {
                     if (datas[i].tags[j] == topicTags[l]) {
                         blog = createBlob(datas[i], s++);
                         const ele = document.getElementById('blogs');
                         ele.appendChild(createBlob(datas[i], i + 1));
+                        flag = 1;
+                        break;
                     }
                 }
+                if (flag == 1) break;
             }
         }
     })
