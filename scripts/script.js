@@ -58,6 +58,22 @@ companies.forEach(function (item) {
     list.appendChild(option);
 });
 
+function logoutUser() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        console.log("logout ")
+    }).catch((error) => {
+        // An error happened.
+        console.log(error);
+    });
+}
+
+document.getElementById("logOut").addEventListener("click", function () {
+    logoutUser();
+    setTimeout(function () {
+        alert("logged out")
+    }, 2000);
+})
 
 let roundNumber = 1
 let questionNumber = 1
@@ -83,13 +99,13 @@ document.getElementById('addQuestion').addEventListener('click', function () {
 document.getElementById("submit").addEventListener('click', function () {
     if (confirm('Are you sure you want to save this thing into the database?')) {
         // Save it!
+        postData();
+        alert("Feedback added successfully");
         console.log('Thing was saved to the database.');
     } else {
         // Do nothing!
         console.log('Thing was not saved to the database.');
     }
-    postData();
-    alert("Feedback added successfully");
     setTimeout(function () {
         window.location = "index.html";
     }, 2000);

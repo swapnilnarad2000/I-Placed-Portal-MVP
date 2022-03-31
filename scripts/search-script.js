@@ -37,6 +37,22 @@ function logoutUser() {
     });
 }
 
+document.getElementById("logOut").addEventListener("click", function () {
+    logoutUser();
+    setTimeout(function () {
+        alert("logged out")
+    }, 2000);
+})
+function logoutUser() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        console.log("logout ")
+    }).catch((error) => {
+        // An error happened.
+        console.log(error);
+    });
+}
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (!user) {
         // User is not signed in.

@@ -25,6 +25,8 @@ function googleLogin() {
         });
 }
 
+document.getElementById("login").addEventListener("click", googleLogin);
+
 function logoutUser() {
     firebase.auth().signOut().then(() => {
         // Sign-out successful.
@@ -35,13 +37,22 @@ function logoutUser() {
     });
 }
 
+document.getElementById("logOut").addEventListener("click", function () {
+    logoutUser();
+    setTimeout(function () {
+        alert("logged out")
+        window.location = "index.html";
+    }, 2000);
+})
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (!user) {
         // User is not signed in.
-        googleLogin();
+        // googleLogin();
+        // document.getElementById("login").style.display = "none";
     }
     else {
-
+        document.getElementById("login").style.display = "none";
         getData()
 
     }
