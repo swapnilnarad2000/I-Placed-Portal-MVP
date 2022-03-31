@@ -5,6 +5,7 @@ const blogHtml = (blog) => `
                         <h6 class="card-title text-secondary">Candidate Name: <b>${blog.firstName} ${blog.lastName}</b></h6>
                         <p class="card-text text-danger">Topics: ${blog.tags}.</p>
                         <p class="card-text text-success">Status : ${blog.status} <br> Difficulty: ${blog.level}.</p>
+                        <button type="submit" id="submit" class="btn btn-secondary  btn-sm">View More</button>
                     </div>
                 </div>
 `
