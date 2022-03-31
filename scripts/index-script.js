@@ -45,18 +45,10 @@ document.getElementById("logOut").addEventListener("click", function () {
 })
 
 firebase.auth().onAuthStateChanged(function (user) {
-    if (!user) {
-        // User is not signed in.
-        // googleLogin();
-        // document.getElementById("login").style.display = "none";
-        document.getElementById("logOut").style.display = "none";
-
-    }
-    else {
+    if (user) {
         document.getElementById("login").style.display = "none";
         getData()
         document.getElementById("logOut").style.display = "block";
-
     }
 });
 

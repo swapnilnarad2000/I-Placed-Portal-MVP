@@ -1,5 +1,3 @@
-document.getElementById("form").style.display = "none";
-
 let provider = new firebase.auth.GoogleAuthProvider();
 
 function googleLogin() {
@@ -47,7 +45,6 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (!user) {
         // User is not signed in.
         window.location = "index.html";
-        document.getElementById("logOut").style.display = "none";
 
     }
     else {
