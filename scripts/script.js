@@ -1,4 +1,4 @@
-document.getElementById("form").style.display = "none";
+// document.getElementById("form").style.display = "none";
 
 let provider = new firebase.auth.GoogleAuthProvider();
 
@@ -44,7 +44,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("logOut").style.display = "none";
     }
     else {
-        document.getElementById("form").style.display = "block";
+        document.getElementById("data").style.display = "block";
         document.getElementById("logOut").style.display = "block";
     }
 });
@@ -73,7 +73,6 @@ function logoutUser() {
 document.getElementById("logOut").addEventListener("click", function () {
     logoutUser();
     setTimeout(function () {
-        alert("logged out")
     }, 2000);
 })
 
@@ -99,18 +98,15 @@ document.getElementById('addQuestion').addEventListener('click', function () {
 });
 
 document.getElementById("submit").addEventListener('click', function () {
-    if (confirm('Are you sure you want to save this thing into the database?')) {
-        // Save it!
-        postData();
-        alert("Feedback added successfully");
-        console.log('Thing was saved to the database.');
-    } else {
-        // Do nothing!
-        console.log('Thing was not saved to the database.');
+    const formele = $('#form')[0]
+    let b = true
+    for (let i = 0; i < formele.length; i++) {
+        if (formele[i].checkValidity() === false) return
     }
-    setTimeout(function () {
-        window.location = "index.html";
-    }, 2000);
+
+    document.getElementById("submit").style.display = "none";
+    document.getElementById("spinner").style.display = "block";
+    postData()
 });
 
 const questionHtml = (questionNumber) => `
@@ -232,7 +228,19 @@ function giveJson() {
 
 const postData = () => {
     db.collection("experienceBlog").add(giveJson()).
-        then(() => console.log("Done"))
-        .catch(err => console.log(err));
+        then(() => {
+
+            console.log("Done")
+            console.log('Thing was saved to the database.');
+            alert("submitted")
+            setTimeout(function () {
+                window.location = "index.html";
+            }, 2000);
+        })
+        .catch(err => {
+            console.log(err)
+            alert("Some error occured")
+        }
+        );
 }
 

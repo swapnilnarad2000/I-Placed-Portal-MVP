@@ -40,7 +40,6 @@ function logoutUser() {
 document.getElementById("logOut").addEventListener("click", function () {
     logoutUser();
     setTimeout(function () {
-        alert("logged out")
         window.location = "index.html";
     }, 2000);
 })
@@ -95,4 +94,5 @@ const getData = () => {
         }
     })
 }
+
 
