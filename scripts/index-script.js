@@ -50,10 +50,13 @@ firebase.auth().onAuthStateChanged(function (user) {
         // User is not signed in.
         // googleLogin();
         // document.getElementById("login").style.display = "none";
+        document.getElementById("logOut").style.display = "none";
+
     }
     else {
         document.getElementById("login").style.display = "none";
         getData()
+        document.getElementById("logOut").style.display = "block";
 
     }
 });

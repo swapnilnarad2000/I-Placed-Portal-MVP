@@ -47,9 +47,13 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (!user) {
         // User is not signed in.
         window.location = "index.html";
+        document.getElementById("logOut").style.display = "none";
+
     }
     else {
         document.getElementById("form").style.display = "block";
+        document.getElementById("logOut").style.display = "block";
+
     }
 });
 
