@@ -27,16 +27,6 @@ function googleLogin() {
         });
 }
 
-function logoutUser() {
-    firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-        console.log("logout ")
-    }).catch((error) => {
-        // An error happened.
-        console.log(error);
-    });
-}
-
 document.getElementById("logOut").addEventListener("click", function () {
     logoutUser();
     setTimeout(function () {
@@ -56,7 +46,7 @@ function logoutUser() {
 firebase.auth().onAuthStateChanged(function (user) {
     if (!user) {
         // User is not signed in.
-        googleLogin();
+        window.location = "index.html";
     }
     else {
         document.getElementById("form").style.display = "block";

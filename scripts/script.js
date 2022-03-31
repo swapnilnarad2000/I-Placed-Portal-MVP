@@ -40,7 +40,7 @@ function logoutUser() {
 firebase.auth().onAuthStateChanged(function (user) {
     if (!user) {
         // User is not signed in.
-        googleLogin();
+        window.location = "index.html";
     }
     else {
         document.getElementById("form").style.display = "block";
