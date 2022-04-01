@@ -1,6 +1,7 @@
 let provider = new firebase.auth.GoogleAuthProvider();
 
 function googleLogin() {
+    document.getElementById("spinner").style.display = "block";
     firebase.auth()
         .signInWithPopup(provider)
         .then((result) => {
@@ -25,7 +26,10 @@ function googleLogin() {
         });
 }
 
-document.getElementById("login").addEventListener("click", googleLogin);
+document.getElementById("login").addEventListener("click", function () {
+    googleLogin();
+    document.getElementById("loginScreen").style.display = "none";
+});
 
 function logoutUser() {
     firebase.auth().signOut().then(() => {
@@ -49,7 +53,9 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("login").style.display = "none";
         getData()
         document.getElementById("logOut").style.display = "block";
+        document.getElementById("spinner").style.display = "none";
     }
+    document.getElementById("showBeforeLog").style.display = "block";
 });
 
 
