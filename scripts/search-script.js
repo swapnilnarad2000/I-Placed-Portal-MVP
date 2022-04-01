@@ -62,16 +62,38 @@ document.getElementById("submit").addEventListener("click", function () {
     getData();
 });
 
-const blogHtml = (blog) => `
-                <div class="card border-success mb-3">
-                    <div class="card-header bg-primary text-white border-success"><b>${blog.company} On campus experience</b></div>
-                    <div class="card-body bg-light">
-                        <h6 class="card-title text-secondary">Candidate Name: <b>${blog.firstName} ${blog.lastName}</b></h6>
-                        <p class="card-text text-danger">Topics: ${blog.tags}.</p>
-                        <p class="card-text text-success">Status : ${blog.status} <br> Difficulty: ${blog.level}.</p>
-                        <button type="submit" id="submit" class="btn btn-secondary  btn-sm">View More</button> 
-                        </div>
-                </div>
+const blogHtml = (blog, num) => `
+<div class="card border-success mb-3">
+<div class="card-header bg-primary text-white border-success"><b>${blog.company} On campus experience</b></div>
+<div class="card-body bg-light">
+    <h6 class="card-title text-secondary">Candidate Name: <b>${blog.firstName} ${blog.lastName}</b></h6>
+    <p class="card-text text-danger">Topics: ${blog.tags}.</p>
+    <p class="card-text text-success">Status : ${blog.status} <br> Difficulty: ${blog.level}.</p>
+   <button id ="btn-${num}" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal-${num}   ">View More</button>
+   <div class="modal fade scrollable" id="exampleModal-${num}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">${blog.company} on campus experience</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            ${blog.innerHTML}
+            <br>
+            ${blog.feedback}
+        </div>
+        <div class="modal-footer">
+        <p class="card-text text-danger">Topics: ${blog.tags}.</p><hs>
+        <p class="card-text text-success">Status : ${blog.status} <br> Difficulty: ${blog.level}.</p>
+        </div>
+        </div >
+    </div >
+    </div >
+</div >
+</div >
+</div >
 `
 
 function createBlob(blogData, blogNumber) {
