@@ -28,7 +28,6 @@ function googleLogin() {
 document.getElementById("logOut").addEventListener("click", function () {
     logoutUser();
     setTimeout(function () {
-        alert("logged out")
     }, 2000);
 })
 function logoutUser() {

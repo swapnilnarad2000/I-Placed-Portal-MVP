@@ -145,7 +145,7 @@ function addQuestion(roundNumber) {
 
 function removeQuestion() {
     if (roundNumber == 1 && listQuestionByRound[0] == 1) {
-        alert("Cant remove first round");
+        console.log("Cant remove first round");
     }
     else {
         if (listQuestionByRound[roundNumber - 1] == 1) {
@@ -175,7 +175,7 @@ function addRound(roundNumber) {
 
 function removeRound() {
     if (roundNumber == 1) {
-        alert("Cant remove first round");
+        console.log("Cant remove first round");
     }
     else {
         const ele = document.getElementById('round');

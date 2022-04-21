@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <script src="scripts/plotly-2.11.1.min.js"></script>
+    <link type="text/css" rel="bootstrap-tagsinput.css">
+    <title>Analytics</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">I Placed Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="search.html">Search <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="form.html">Add Experience <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="analytics.html">Analytics <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <div class="d-flex justify-content-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Frequency of topics asked</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="plot-1" style="min-width:300px;height:250px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Total Student placed by company</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="plot-2" style="width:500px;height:250px;"></div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Average cgpa of students placed company wise</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="plot-3" style="width:500px;height:250px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Difficulty Level Of Interviews</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="plot-4" style="width:600px;height:250px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <script>
+        var trace1 = {
+            x: ["DSA", "Linked List", "Arrays", "DP", "DSA1", "Linked List1", "Arrays1", "DP1", "DSA2", "Linked List2", "Arrays2", "DP2"],
+            y: [10, 15, 13, 17, 10, 15, 13, 17, 10, 15, 13, 17],
+            type: 'scatter'
+        };
+
+
+        var data = [trace1];
+
+        Plotly.newPlot('plot-1', data);
+
+        var data = [
+            {
+                x: ['Paytm', 'LTI', 'Redisys', "Amazon", "ICICI Bank"],
+                y: [21, 6, 8, 2, 8],
+                type: 'bar'
+            }
+        ];
+
+        Plotly.newPlot('plot-2', data);
+
+        var data = [
+            {
+                x: ['Paytm', 'LTI', 'Redisys', "Amazon", "ICICI Bank"],
+                y: [8.7, 7.6, 8.1, 9.2, 7.2],
+                type: 'bar'
+            }
+        ];
+
+
+        Plotly.newPlot('plot-3', data);
+
+        var data = [{
+            values: [19, 55, 27],
+            labels: ['Easy', 'Medium', 'Hard'],
+            type: 'pie'
+        }];
+
+        var layout = {
+            height: 350,
+            width: 500
+        };
+
+        Plotly.newPlot('plot-4', data, layout);
+
+
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
