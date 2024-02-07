@@ -49,7 +49,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     else {
         document.getElementById("form").style.display = "block";
         document.getElementById("logOut").style.display = "block";
-
+        document.querySelector("nav").style.display = "block";
     }
 });
 
