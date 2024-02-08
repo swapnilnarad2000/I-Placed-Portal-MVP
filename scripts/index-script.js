@@ -43,6 +43,7 @@ function logoutUser() {
 
 document.getElementById("logOut").addEventListener("click", function () {
     logoutUser();
+    document.querySelector(".greet-text").innerHTML = "Leaving Too Soon!!!"
     setTimeout(function () {
         window.location = "index.html";
     }, 2000);
@@ -53,12 +54,13 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("login").style.display = "none";
         getData()
         document.getElementById("logOut").style.display = "block";
-        document.getElementById("spinner").style.display = "none";
         document.querySelector("nav").style.display = "block";
         document.querySelector(".login-background").style.display = "none";
-        document.querySelector(".overlay").style.display = "none";
+        document.getElementById("showBeforeLog").style.display = "none";
     }
-    document.getElementById("showBeforeLog").style.display = "flex";
+    else{
+        document.getElementById("showBeforeLog").style.display = "flex";
+    }
 });
 
 

@@ -7,6 +7,7 @@
     text-align: center;
 }
 
+
 html {
     font-family: 'Montserrat', sans-serif;
 }
@@ -33,14 +34,29 @@ html {
 
 #login{
     position: relative;
-    top: 200px;
-    right: 40px;
+    top: 350px;
     background: black;
     z-index: 3;
+    overflow: hidden;
 }
 
 #login:hover{
     background: white;
+}
+
+.brand-logo{
+    width: 150px;
+}
+
+.icon-block{
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
+    top: 130px;
 }
 
 .exp-form{
@@ -52,10 +68,11 @@ html {
     width: 100%;
     position: absolute;
     z-index: 2;
-    background-color: rgba(0,0,0,0.2) !important;
+    background-color: rgba(0,0,0,0.4) !important;
 }
 
 .login-background{
     position: absolute;
-    height: 700px;
+    height: 100vh;
+    width: 100%;
 }
