@@ -221,13 +221,15 @@ function giveJson() {
         "status": selectionStatus,
         "level": difficultLevel,
         "tags": topicTags,
-        "rounds": roundData
+        "rounds": roundData,
+        "timeStamp": new Date().getTime()
     }
     return formData;
 }
 
 const postData = () => {
-    db.collection("experienceBlog").add(giveJson()).
+    db.collection("experienceBlog")
+    .orderBy("timeStamp", "desc").add(giveJson()).
         then(() => {
 
             console.log("Done")

@@ -14,34 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300:wght@100&display=swap"
         rel="stylesheet">
     <link type="text/css" rel="bootstrap-tagsinput.css">
-    <title>Form</title>
+    <title>Home</title>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script>
-        // Import the functions you need from the SDKs you need
-
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyD53Gyj3HBu5skWhI3QtnTRM4NUw3qJFC4",
-            authDomain: "i-placed-portal-auth.firebaseapp.com",
-            projectId: "i-placed-portal-auth",
-            storageBucket: "i-placed-portal-auth.appspot.com",
-            messagingSenderId: "859416767221",
-            appId: "1:859416767221:web:c4736d060cf67afaf2b3bc",
-            measurementId: "G-L10VPF59T3"
-        };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-
-        // const analytics = getAnalytics(app);
-    </script>
+    <script src="scripts/firebase-script.js"></script>
 </head>
 
 <body>
@@ -78,19 +55,20 @@
             </div>
         </nav>
         <br>
-        <div class="container" style="max-width: 800px;">
-            <div class="row" id="blogs">
-            </div>
+        <div class="container" style="max-width: 1200px;">
+                <div class="row" id="blogs"></div>
         </div>
     </div>
     <div id="showBeforeLog" style="display: none;">
         <div><br><br><br><br><br><br><br><br></div>
-        <div class="container" style="max-width: 500px; min-height: 150px;">
+        <div class="overlay"></div>
+        <img class="login-background" src="/img/gymkhana.jpg">
+        <div class="container-fluid" style="max-width: 500px; min-height: 150px;">
             <br></br>
             <div class="d-flex justify-content-center">
                 <div class="row" id="loginScreen">
                     <div class="col-md-12 text-center">
-                        <button id="login" class="btn btn-outline-dark" role="button" style="text-transform:none">
+                        <button id="login" class="btn btn-outline-light" role="button" style="text-transform:none">
                             <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
                                 src="https://developers.google.com/static/identity/images/g-logo.png" />
                             Login with Google

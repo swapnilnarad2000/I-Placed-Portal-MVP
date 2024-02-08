@@ -15,5 +15,47 @@ html {
 #logo-size {
     width: 15%;
     height: 15%;
+}
 
+#logOut{
+    cursor: pointer;
+}
+
+#showAfterLog{
+    height: 0px;
+}
+
+#showBeforeLog{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#login{
+    position: relative;
+    top: 200px;
+    right: 40px;
+    background: black;
+    z-index: 3;
+}
+
+#login:hover{
+    background: white;
+}
+
+.exp-form{
+    margin-top: 100px;
+}
+
+.overlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0,0,0,0.2) !important;
+}
+
+.login-background{
+    position: absolute;
+    height: 700px;
 }
