@@ -1,3 +1,5 @@
+// Loads experience data here
+
 let provider = new firebase.auth.GoogleAuthProvider();
 
 function googleLogin() {
