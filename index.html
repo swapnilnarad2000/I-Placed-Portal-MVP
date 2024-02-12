@@ -15,6 +15,7 @@
         rel="stylesheet">
     <link type="text/css" rel="bootstrap-tagsinput.css">
     <title>Home</title>
+    <script src="https://kit.fontawesome.com/6b84db81a6.js" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
@@ -22,63 +23,145 @@
 </head>
 
 <body>
-    <div id="showAfterLog">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="display: none;">
-            <a class="navbar-brand" href="index.html">I Placed Portal</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #90caf3;">
+        <div class="container">
+            <a class="logo-block" href="index.html">
+                <h1 class="logo-text"><span><img id="logo-size" src="./static/assets/img//logo.png"></span>I Placed Portal</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="search.html">Search <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="form.html">Add Experience <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="analytics.html">Analytics <span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav mr-left">
-                    <li class="nav-item active">
-                        <a class="nav-link" style="display: none;" id="logOut">Log Out <span
-                                class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-                </ul>
-            </div>
-        </nav>
-        <br>
-        <div class="container" style="max-width: 1200px;">
-                <div class="row" id="blogs"></div>
-        </div>
-    </div>
-    <div id="showBeforeLog" style="display: none;">
-        <div><br><br><br><br><br><br><br><br></div>
-        <div class="overlay"></div>
-        <img class="login-background" src="/img/gymkhana.jpg">
-        <div class="container-fluid" style="max-width: 500px; min-height: 150px;">
-            <br></br>
             <div class="d-flex justify-content-center">
-                <div class="row" id="loginScreen">
-                    <div class="col-md-12 text-center">
-                        <button id="login" class="btn btn-outline-light" role="button" style="text-transform:none">
-                            <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
-                                src="https://developers.google.com/static/identity/images/g-logo.png" />
-                            Login with Google
-                        </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="view.html">View</a></li>
+                        <li class="nav-item"><a class="nav-link" href="search.html">Search</a></li>
+                        <li class="nav-item"><a class="nav-link" href="form.html">Add</a></li>
+                        <li class="nav-item"><a class="nav-link" href="analytics.html">Analyze</a></li>
+                        <li class="nav-item"><a class="nav-link" style="display: none;" id="logOut">Log
+                                Out </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="top-content">
+        <div class="container">
+    
+            <div class="row">
+                <div class="col-sm-12 text wow fadeInLeft">
+                    <div class="description">
+                        <br><br><br><br><br>
                     </div>
                 </div>
-                <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
-                    <span class="sr-only">Loading...</span>
+            </div>
+    
+        </div>
+    </div>
+    
+    <!-- Features -->
+    <div class="features-container section-container">
+        <div class="container">
+    
+            <div class="row">
+                <div class="col-sm-12 features section-description wow fadeIn">
+                    <div id="notlogin">
+                        <h1 style="text-align: center;">Welcome to I Placed Portal</h1>
+                        <div class="description">
+                            <p class="medium-paragraph" style="text-align: center;">
+                                One place for all placement related experience data, please login using your
+                                Gmail ID to continue.
+                            </p>
+                        </div>
+                        <div id="main-box" class="d-flex justify-content-center">
+                            <div class="row" id="loginScreen">
+                                <div class="col-md-12 text-center">
+                                    <button href=index.html id="login" class="btn btn-outline-dark" role="button"
+                                        style="text-transform:none">
+                                        <i class="fa-brands fa-google"></i>
+                                        <span style="margin-left: 5px;">
+                                            Login with Google
+                                        </span>
+                                            
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="logon" style="display: none;">
+                        <h2 style="text-align: center;">Welcome to I Placed Portal</h2>
+                        <div class="description">
+                            <p class="medium-paragraph" style="text-align: center;">
+                                You are now logged in, now you can access all the features.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-6 features-box wow fadeInLeft">
+                    <div class="row">
+                        <div class="col-sm-3 features-box-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h3>View experience Blogs</h3>
+                            <p>
+                                View all experience related data here in one place.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 features-box wow fadeInLeft">
+                    <div class="row">
+                        <div class="col-sm-3 features-box-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h3>Search experience Blogs</h3>
+                            <p>
+                                Search experience blogs using company and topic tags.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-sm-6 features-box wow fadeInLeft">
+                    <div class="row">
+                        <div class="col-sm-3 features-box-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h3>Add experience Blogs</h3>
+                            <p>
+                                Add your placement experience to help build a strong community.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 features-box wow fadeInLeft">
+                    <div class="row">
+                        <div class="col-sm-3 features-box-icon">
+                            <i class="fas fa-bar-chart"></i>
+                        </div>
+                        <div class="col-sm-9">
+                            <h3>Analyze Data</h3>
+                            <p>
+                                Analyze past placement statistics and plots.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
         </div>
     </div>
 
@@ -94,6 +177,12 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="scripts/index-script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.9/wow.min.js"></script>
+    <script src="/static/assets/js/retina-1.1.0.min.js"></script>
+    <script src="/static/assets/js/scripts.js"></script>
 </body>
 
 </html>

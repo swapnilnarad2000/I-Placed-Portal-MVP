@@ -1,6 +1,7 @@
 let provider = new firebase.auth.GoogleAuthProvider();
 
 function googleLogin() {
+    document.getElementById("spinner").style.display = "block";
     firebase.auth()
         .signInWithPopup(provider)
         .then((result) => {
@@ -25,11 +26,6 @@ function googleLogin() {
         });
 }
 
-document.getElementById("logOut").addEventListener("click", function () {
-    logoutUser();
-    setTimeout(function () {
-    }, 2000);
-})
 function logoutUser() {
     firebase.auth().signOut().then(() => {
         // Sign-out successful.
@@ -40,26 +36,25 @@ function logoutUser() {
     });
 }
 
+document.getElementById("logOut").addEventListener("click", function () {
+    logoutUser();
+    setTimeout(function () {
+        window.location = "index.html";
+    }, 2000);
+})
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (!user) {
-        // User is not signed in.
         window.location = "index.html";
-
     }
-    else {
-        document.getElementById("form").style.display = "block";
+    else{
+        getData()
         document.getElementById("logOut").style.display = "block";
-        document.querySelector("nav").style.display = "block";
+        document.getElementById("notlogin").style.display = "none";
+        document.getElementById("logon").style.display = "block";
     }
 });
 
-let datas = []
-
-document.getElementById("submit").addEventListener("click", function () {
-    removeAllChildNodes(document.getElementById('blogs'));
-    datas = []
-    getData();
-});
 
 const blogHtml = (blog, num, roundData) => `
 <div class="card border-success mb-3">
@@ -68,7 +63,7 @@ const blogHtml = (blog, num, roundData) => `
     <h6 class="card-title text-secondary">Candidate Name: <b>${blog.firstName} ${blog.lastName}</b></h6>
     <p class="card-text text-danger">Topics: ${blog.tags}.</p>
     <p class="card-text text-success">Status : ${blog.status} <br> Difficulty: ${blog.level}.</p>
-   <button id ="btn-${num}" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal-${num}">View More</button>
+   <button id ="btn-${num}" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal-${num}   ">View More</button>
    <div class="modal fade scrollable" id="exampleModal-${num}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -115,40 +110,16 @@ function createBlob(blogData, blogNumber) {
     return div;
 }
 
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
 
+let datas = []
 
 const getData = () => {
-    db.collection("experienceBlog").get().then(qs => {
+    db.collection("experienceBlog")
+    .orderBy("timeStamp", "desc").get().then(qs => {
         qs.forEach(doc => datas.push(doc.data()))
-        topicTags = [];
-        companyTags = [];
-        totalTags = document.getElementsByClassName("item").length;
-        for (let topics = 0; topics < totalTags; topics++) {
-            topicTags.push(document.getElementsByClassName("item")[topics].textContent);
-        }
-        console.log(topicTags)
-        let s = 1;
         for (let i = 0; i < datas.length; i++) {
-            let k = datas[i].tags.length;
-            for (let j = 0; j < k; j++) {
-                let flag = 0;
-                // console.log(datas[i].tags[j], datas[i].tags[j] in topicTags)
-                for (let l = 0; l < topicTags.length; l++) {
-                    if (datas[i].tags[j] == topicTags[l] || datas[i].company == topicTags[l]) {
-                        blog = createBlob(datas[i], s++);
-                        const ele = document.getElementById('blogs');
-                        ele.appendChild(createBlob(datas[i], i + 1));
-                        flag = 1;
-                        break;
-                    }
-                }
-                if (flag == 1) break;
-            }
+            const ele = document.getElementById('blogs');
+            ele.appendChild(createBlob(datas[i], i + 1));
         }
     })
 }

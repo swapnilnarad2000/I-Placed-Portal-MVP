@@ -1,28 +1,6 @@
 #logo-size {
-	width: 10%;
-	height: 10%;
-    margin-right: 20px;
-}
-
-.logo-block, .logo-block:hover, .logo-block:active{
-    max-width: 60%;
-    text-decoration: none;
-}
-
-#logOut{
-	cursor: pointer;
-}
-
-@media (max-width: 768px){
-    #logo-size{
-        margin-right: 5px;
-        width: 20%;
-        height: 20%;
-    }
-    .logo-text{
-        font-size: 20px;
-        padding-right: 5px;
-    }
+	width: 15%;
+	height: 15%;
 }
 
 .btn-circle.btn-sm {
@@ -184,7 +162,7 @@ ul.navbar-nav {
 .navbar-brand {
 	width: 102px;
 	height: 60px;
-	background: url("../img/logo.png") left center no-repeat;
+	background: url(../img/logo.png) left center no-repeat;
 	text-indent: -99999px;
 }
 
@@ -366,7 +344,7 @@ only screen and (min-resolution: 2dppx) {
 
 	/* logo */
 	.navbar-brand {
-		background-image: url(../img/logo.png) !important;
+		background-image: url(../img/logo@2x.png) !important;
 		background-repeat: no-repeat !important;
 		background-size: 102px 32px !important;
 	}
