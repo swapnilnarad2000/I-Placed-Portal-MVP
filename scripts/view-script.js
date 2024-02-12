@@ -52,8 +52,6 @@ firebase.auth().onAuthStateChanged(function (user) {
     else{
         getData()
         document.getElementById("logOut").style.display = "block";
-        document.getElementById("notlogin").style.display = "none";
-        document.getElementById("logon").style.display = "block";
     }
 });
 
