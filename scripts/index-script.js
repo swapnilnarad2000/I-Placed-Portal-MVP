@@ -46,6 +46,7 @@ function logoutUser() {
 
 document.getElementById("logOut").addEventListener("click", function () {
     logoutUser();
+    document.querySelector(".greet-text").innerHTML = "Leaving Too Soon!!!"
     setTimeout(function () {
         window.location = "index.html";
     }, 2000);

@@ -34,22 +34,14 @@
 	text-align: center;
 }
 
-.navbar-logo-custom {
-	font-size: 25px;
-	font-weight: 500;
+html {
+    font-family: 'Montserrat', sans-serif;
 }
 
-body {
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	font-weight: 500;
-	color: #888;
-	line-height: 30px;
-	text-align: center;
-}
 
-strong {
-	font-weight: 500;
+#logo-size {
+    width: 15%;
+    height: 15%;
 }
 
 a,
@@ -244,21 +236,8 @@ ul.navbar-nav {
 	text-align: center;
 }
 
-.features-box h3 {
-	margin-top: 0;
-	padding: 0 0 10px 0;
-}
-
-
-/***** Footer *****/
-
-footer {
-	padding: 40px 0 45px 0;
-	background: #f8f8f8;
-}
-
-.footer-copyright {
-	padding-top: 15px;
+.exp-form{
+    margin-top: 100px;
 }
 
 .footer-copyright a {
