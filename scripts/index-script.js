@@ -46,7 +46,9 @@ function logoutUser() {
 
 document.getElementById("logOut").addEventListener("click", function () {
     logoutUser();
+    document.getElementsByClassName("logout-overlay")[0].style.display = "block";
     setTimeout(function () {
+        document.getElementsByClassName("logout-overlay")[0].style.display = "none";
         window.location = "index.html";
     }, 2000);
 })

@@ -46,7 +46,9 @@ firebase.auth().onAuthStateChanged(function (user) {
         document.getElementById("showAfterLog").style.display = "block";
         document.getElementById("logOut").addEventListener("click", function () {
             logoutUser();
+            document.getElementsByClassName("logout-overlay")[0].style.display = "block";
             setTimeout(function () {
+                document.getElementsByClassName("logout-overlay")[0].style.display = "none";
             }, 2000);
         })
     }

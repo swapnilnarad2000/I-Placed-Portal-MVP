@@ -40,8 +40,9 @@ function logoutUser() {
 
 document.getElementById("logOut").addEventListener("click", function () {
     logoutUser();
+    document.getElementsByClassName("logout-overlay")[0].style.display = "block";
     setTimeout(function () {
-        window.location = "index.html";
+        document.getElementsByClassName("logout-overlay")[0].style.display = "none";
     }, 2000);
 })
 
