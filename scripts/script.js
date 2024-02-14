@@ -230,8 +230,7 @@ function giveJson() {
 }
 
 const postData = () => {
-    db.collection("experienceBlog")
-    .orderBy("timeStamp", "desc").add(giveJson()).
+    db.collection("experienceBlog").add(giveJson()).
         then(() => {
 
             console.log("Done")
